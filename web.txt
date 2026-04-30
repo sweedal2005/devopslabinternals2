@@ -1,0 +1,39 @@
+Event-Based Automatic Build using GitHub Webhooks
+
+In Jenkins:
+Click New Item
+Enter project name
+Select Freestyle Project
+
+Click OK
+Configure GitHub Repository
+Scroll to Source Code Management
+Select Git
+Enter the GitHub repository URL
+Scroll to Build Triggers
+Select: GitHub hook trigger for GITScm polling
+Install and Run ngrok
+
+DevOps Lab Cheat Sheet
+
+Prof. Akshatha M, VVCE
+
+ngrok http 8080 (Jenkins port)
+
+Add Build Step
+Scroll to Build → Add Build Step
+Execute Windows Batch Command
+Give the command (echo, python, java)
+Save the Job
+Configure Webhook in GitHub
+Open your repository in GitHub
+Go to Settings
+Click Webhooks
+Click Add Webhook
+Enter Webhook Details:
+Payload URL: http://ngrok_generated_IP/github-webhook/
+Click Add Webhook
+Make a change in the project and push the code
+
+When code is pushed to GitHub, the Webhook sends a request through ngrok to
+Jenkins, and Jenkins immediately starts the build.
